@@ -41,7 +41,7 @@ namespace ProjectProduk
 
                     default:
                         Console.Clear();
-                        Console.WriteLine("Maaf, Menu yang anda pilih tidak tersedia");
+                        Console.WriteLine("Maaf, menu yang anda pilih tidak tersedia");
                         break;
                 }
             }
@@ -51,31 +51,26 @@ namespace ProjectProduk
         {
             //Console.WriteLine
             Console.Clear();
-            Console.WriteLine("Pilih Menu Aplikasi\n");
-            Console.WriteLine("1. Tambah Produk");
+            Console.WriteLine("Pilih menu Aplikasi");
+            Console.WriteLine("\n1. Tambah Produk");
             Console.WriteLine("2. Hapus Produk");
             Console.WriteLine("3. Tampilkan Produk");
             Console.WriteLine("4. Keluar");
-
-
-            // PERINTAH: lengkapi kode untuk menampilkan menu
         }
 
         static void TambahProduk()
         {
             Console.Clear();
 
-            // PERINTAH: lengkapi kode untuk menambahkan produk ke dalam collection
-
             Produk produk = new Produk();
             Console.WriteLine("Tambah Data Produk");
-            Console.WriteLine("\nKode Produk    : ");
-            produk.kode_produk = Console.ReadLine();
-            Console.WriteLine("Nama Produk  : ");
-            produk.kode_produk = Console.ReadLine();
-            Console.WriteLine("Harga Beli   : ");
+            Console.Write("\nKode Produk : ");
+            produk.kodeproduk = Console.ReadLine();
+            Console.Write("Nama Produk : ");
+            produk.namaproduk = Console.ReadLine();
+            Console.Write("Harga Beli : ");
             produk.harga_beli = double.Parse(Console.ReadLine());
-            Console.WriteLine("Harga Jual   : ");
+            Console.Write("Harga Jual : ");
             produk.harga_jual = double.Parse(Console.ReadLine());
 
             Console.WriteLine("\nTekan ENTER untuk kembali ke menu");
@@ -86,14 +81,11 @@ namespace ProjectProduk
         {
             Console.Clear();
 
-            // PERINTAH: lengkapi kode untuk menghapus produk dari dalam collection
-
-            Console.Clear();
             int no = -1, hapus = -1;
             Console.WriteLine("Hapus Data Produk");
-            Console.WriteLine("Kode Produk");
+            Console.Write("Kode Produk : ");
             string kode = Console.ReadLine();
-            foreach (Produk produk in daftarProduk) ;
+            foreach (Produk produk in daftarProduk)
             {
                 no++;
                 if (produk.kodeproduk == kode)
@@ -101,11 +93,11 @@ namespace ProjectProduk
                     hapus = no;
                 }
             }
+            if (hapus != -1)
             {
                 daftarProduk.RemoveAt(hapus);
                 Console.WriteLine("\nData produk berhasil di hapus");
-            }
-            else
+            }else
             {
                 Console.WriteLine("\nKode produk tidak ditemukan");
             }
@@ -118,15 +110,14 @@ namespace ProjectProduk
         {
             Console.Clear();
 
-            // PERINTAH: lengkapi kode untuk menampilkan daftar produk yang ada di dalam collection
-
             int noUrut = 0;
             Console.WriteLine("Data Produk");
             foreach (Produk produk in daftarProduk)
             {
                 noUrut++;
                 Console.WriteLine("{0}. Kode Produk: {1}, Nama Produk: {2}, Harga Beli: {3}, Harga Jual: {4}", noUrut, produk.kodeproduk, produk.namaproduk, produk.harga_beli, produk.harga_jual);
-            }
+    
+        }
             if (noUrut < 1)
             {
                 Console.WriteLine("Data Produk Kosong");
